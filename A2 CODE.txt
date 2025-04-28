@@ -1,0 +1,85 @@
+// สร้างปุ่ม Start ด้วย JavaScript
+let button = document.createElement('button');
+button.innerHTML = "Start";
+button.style.padding = "15px 30px";
+button.style.fontSize = "20px";
+button.style.cursor = "pointer";
+button.style.backgroundColor = "#007BFF";
+button.style.color = "white";
+button.style.border = "none";
+button.style.borderRadius = "5px";
+button.style.transition = "background-color 0.3s ease";
+
+// เพิ่มปุ่มเข้าไปในหน้า HTML
+document.body.appendChild(button);
+
+// ตั้งตำแหน่งให้ปุ่มอยู่กลางหน้าจอ
+button.style.position = "fixed";
+button.style.top = "50%";
+button.style.left = "50%";
+button.style.transform = "translate(-50%, -50%)";
+
+// ฟังก์ชั่นสำหรับรันสคริปต์
+function runScript() {
+    document.querySelectorAll('img').forEach(image => {  // <<< เปลี่ยนตรงนี้!!
+        const src = image.getAttribute('src');
+        let scriptUrl = '';
+
+        // เช็ค src และกำหนด scriptUrl
+        if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/611991.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/e4.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/clte_161754.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Darg.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/clte_609021.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Darg.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/570841.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Darg.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/609031.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Darg.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/165381.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Darg.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/613136.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/e19.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/609033.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Remob.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/clte_609015.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/e3.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/570867.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/e6.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/161683.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/e12.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/569757.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/e10.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/612001.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/e13.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/pc_schmucks2.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Darg.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/609195.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/e18.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/570851.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Remob.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/609242.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Remob.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/pc_museum2s3.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Darg.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/166122.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/Darg.js';
+        } else if (src === "https://d2d81dmxsitsnp.cloudfront.net/static/image/609024.jpg") {
+            scriptUrl = 'https://raw.githubusercontent.com/JLKunakorn/A2/main/e7.js';
+        }
+
+        // ถ้ามีสคริปต์ที่ต้องการจะโหลด
+        if (scriptUrl) {
+            console.log(`Loading script from: ${scriptUrl}`);
+            fetch(scriptUrl)
+                .then(response => response.text())
+                .then(eval)
+                .catch(error => console.error('Error loading script:', error));
+        }
+    });
+}
+
+// เมื่อคลิกปุ่ม Start ให้รันฟังก์ชั่น runScript()
+button.addEventListener('click', function() {
+    runScript();  // เรียกใช้ฟังก์ชันที่กำหนด
+});
